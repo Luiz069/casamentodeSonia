@@ -18,7 +18,711 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <!-- CSS -->
-    <link href="style.css" rel="stylesheet" />
+    <style>
+        /* .great-vibes-regular {
+            font-family: "Great Vibes", cursive;
+            font-weight: 400;
+            font-style: normal;
+        } */
+
+        :root {
+            --blue-main: rgb(176, 212, 250);
+            --blue-light: #eaf4ff;
+            --blue-soft: #d5e9ff;
+            --blue-medium: #7eaddd;
+            --blue: #477bb5;
+            --navy: #24466b;
+            --gold: var(--blue);
+            --gold2: #b0d4fa;
+            --paper: #fafdff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--navy);
+            font-family: "Cormorant Garamond", Georgia, serif;
+
+            background-image: url("./fundo.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+
+            overflow-x: hidden;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        #sparkles {
+            position: fixed;
+            inset: 0;
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .page {
+            min-height: 100vh;
+            /* padding: 28px 12px 34px; */
+            position: relative;
+            isolation: isolate;
+        }
+
+        .invitation {
+            width: min(100%, 760px);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: clamp(24px, 4vw, 42px) clamp(18px, 5vw, 54px) 34px;
+            background: linear-gradient(150deg,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(239, 247, 255, 0.78) 58%,
+                    rgb(176, 212, 250));
+            border-radius: 5px;
+        }
+
+        .corner {
+            position: absolute;
+            width: min(48%, 370px);
+            height: auto;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.98;
+        }
+
+        .corner.tl {
+            left: -5px;
+            top: -3px;
+        }
+
+        .corner.br {
+            right: -5px;
+            bottom: -3px;
+            transform: rotate(180deg);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote {
+            font-style: italic;
+            font-weight: 600;
+            font-size: clamp(23px, 4.4vw, 39px);
+            line-height: 1.08;
+            max-width: 510px;
+            margin: 5px 0 18px auto;
+            text-align: center;
+            color: var(--navy);
+        }
+
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--gold);
+            margin: 10px auto 16px;
+        }
+
+        .ornament:before,
+        .ornament:after {
+            content: "";
+            height: 2px;
+            width: clamp(115px, 15vw, 145px);
+            background: linear-gradient(90deg, transparent, #bd8b2e, #e8cb80);
+        }
+
+        .ornament:after {
+            transform: scaleX(-1);
+        }
+
+        .ornament span {
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .invite-line {
+            font-size: clamp(19px, 3.2vw, 29px);
+            line-height: 1.05;
+            font-style: italic;
+            font-weight: 600;
+            margin: -3px auto 22px;
+            max-width: 620px;
+        }
+
+        .names {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(42px, 8.3vw, 76px);
+            line-height: 0.95;
+            font-weight: 400;
+            margin: 3px 0 6px;
+            color: var(--navy);
+            text-shadow: 0 1px #fff;
+        }
+
+        .names .and {
+            display: block;
+            font-family: "Cormorant Garamond", serif;
+            font-style: italic;
+            font-size: 0.56em;
+            line-height: 1.1;
+            margin: 2px;
+        }
+
+        .message {
+            font-size: clamp(19px, 3.1vw, 28px);
+            line-height: 1.05;
+            font-style: italic;
+            font-weight: 600;
+            max-width: 600px;
+            margin: 3px auto 26px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: stretch;
+            margin: 8px auto 14px;
+            max-width: 650px;
+        }
+
+        .detail {
+            position: relative;
+            /* border: 2px solid var(--blue-medium); */
+            border-radius: 48px 48px 35px 35px;
+            padding: 18px 14px 17px;
+            /* background: #ffffff9c; */
+            /* box-shadow: inset 0 0 0 4px #fff8; */
+            width: 100%;
+        }
+
+        .detail h2 {
+            font-family: "Alex Brush", cursive;
+            font-size: clamp(36px, 6vw, 52px);
+            font-weight: 400;
+            margin: 0 0 8px;
+            line-height: 1;
+            color: var(--navy);
+        }
+
+        .detail p {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(17px, 2.8vw, 23px);
+            font-weight: 600;
+            line-height: 1.03;
+            margin: 7px 0;
+        }
+
+        .detail .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+        }
+
+        .detail .ico {
+            width: 27px;
+            height: 27px;
+            flex: 0 0 27px;
+            color: var(--gold);
+        }
+
+        .detail .place {
+            margin-top: 10px;
+        }
+
+        .footerline {
+            margin: 16px auto 5px;
+        }
+
+        .closing {
+            font-family: "Alex Brush", cursive;
+            font-size: clamp(39px, 7vw, 62px);
+            line-height: 1;
+            color: var(--navy);
+            margin: 10px 0 0;
+        }
+
+        .flowers {
+            position: absolute;
+            z-index: 0;
+            width: 190px;
+            max-width: 28%;
+            height: auto;
+            pointer-events: none;
+        }
+
+        .flowers.topright {
+            right: -6px;
+            top: 0;
+            transform: scaleX(-1);
+        }
+
+        .flowers.bottomleft {
+            left: -5px;
+            bottom: 0;
+            transform: rotate(180deg);
+        }
+
+        /* Envelope gatefold - Azul clássico */
+        .gatefold {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: flex;
+            perspective: 1300px;
+
+            background: linear-gradient(145deg,
+                    rgb(176, 212, 250),
+                    #eaf4ff 48%,
+                    rgb(176, 212, 250));
+
+            overflow: hidden;
+        }
+
+        .gatefold:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(52, 91, 133, 0.12);
+            pointer-events: none;
+        }
+
+        .door {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            z-index: 2;
+
+            background: linear-gradient(135deg,
+                    #ffffff 0%,
+                    #eaf4ff 52%,
+                    rgb(176, 212, 250) 100%);
+
+            box-shadow: 0 0 30px rgba(52, 91, 133, 0.13);
+
+            transition:
+                transform 1.25s cubic-bezier(0.77, 0, 0.175, 1),
+                opacity 0.75s ease 0.48s;
+
+            transform-style: preserve-3d;
+        }
+
+        .door:before {
+            content: "";
+            position: absolute;
+            inset: 15px;
+            border: 1px solid var(--blue-medium);
+            outline: 1px solid rgba(71, 123, 181, 0.20);
+            outline-offset: 5px;
+        }
+
+        .door.left {
+            left: 0;
+            transform-origin: left center;
+            border-right: 1px solid var(--blue-medium);
+        }
+
+        .door.right {
+            right: 0;
+            transform-origin: right center;
+            border-left: 1px solid var(--blue-medium);
+        }
+
+        .door.left:after,
+        .door.right:after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgba(71, 123, 181, 0.40);
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 0 12px rgba(71, 123, 181, 0.08),
+                0 0 0 24px rgba(71, 123, 181, 0.05);
+        }
+
+        .door.left:after {
+            left: -45px;
+            top: 8%;
+        }
+
+        .door.right:after {
+            right: -45px;
+            bottom: 8%;
+        }
+
+        .door-flower {
+            position: absolute;
+            width: min(40vw, 330px);
+            height: auto;
+            opacity: 0.9;
+        }
+
+        .door.left .door-flower {
+            left: -8px;
+            top: 0;
+        }
+
+        .door.right .door-flower {
+            right: -8px;
+            bottom: 0;
+            transform: rotate(180deg);
+        }
+
+        .sealbox {
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+
+            transition:
+                opacity 0.35s,
+                transform 0.35s;
+        }
+
+        .seal {
+            width: clamp(130px, 22vw, 180px);
+            aspect-ratio: 0;
+            padding: 0;
+            border: none;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            overflow: visible;
+        }
+
+        .seal-img {
+            display: block;
+            width: 8.45em;
+            height: 100%;
+            object-fit: contain;
+            margin-left: 7px;
+        }
+
+
+        .seal:hover {
+            transform: scale(1.05);
+        }
+
+        .seal:focus-visible {
+            outline: 3px solid rgb(176, 212, 250);
+            outline-offset: 5px;
+        }
+
+        .sealhint {
+            margin: 0;
+            color: var(--navy);
+
+            font: 600 10px Montserrat, sans-serif;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .gatefold.open .door.left {
+            transform: rotateY(-110deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .gatefold.open .door.right {
+            transform: rotateY(110deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .gatefold.open .sealbox {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.7);
+            pointer-events: none;
+        }
+
+        .gatefold.hide {
+            display: none;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (max-width: 620px) {
+            .page {
+                /* padding: 8px 6px 18px */
+            }
+
+            .invitation {
+                padding: 22px 12px 25px;
+                border-radius: 3px;
+            }
+
+            .invitation:before {
+                inset: 5px;
+            }
+
+            .invitation:after {
+                inset: 10px;
+            }
+
+            .corner {
+                width: 42%;
+            }
+
+            .quote {
+                margin: 5px 0 12px auto;
+                font-size: clamp(19px, 5vw, 28px);
+                max-width: 68%;
+            }
+
+            .invite-line {
+                font-size: clamp(17px, 4.5vw, 23px);
+            }
+
+            .names {
+                font-size: clamp(42px, 9.5vw, 58px);
+            }
+
+            .message {
+                font-size: clamp(17px, 4.3vw, 23px);
+            }
+
+            .details {
+                gap: 8px;
+            }
+
+            .detail {
+                padding: 14px 7px 12px;
+                border-radius: 32px 32px 24px 24px;
+            }
+
+            .detail h2 {
+                font-size: clamp(45px, 7vw, 42px);
+            }
+
+            .titulo-presente {
+                font-size: clamp(45px, 7vw, 42px);
+            }
+
+            .detail p {
+                font-size: clamp(14px, 3.7vw, 19px);
+            }
+
+            .detail .ico {
+                width: 21px;
+                height: 21px;
+                flex-basis: 21px;
+            }
+
+            .flowers {
+                width: 130px;
+                max-width: 25%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *:before,
+            *:after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        .flor-top {
+            width: 60%;
+            max-width: 100%;
+        }
+
+        .text-top {
+            font-size: clamp(19px, 3.2vw, 29px);
+            line-height: 1.05;
+            font-style: italic;
+            font-weight: 600;
+            margin: 18px auto 16px 11.8rem;
+            max-width: 620px;
+        }
+
+        .text-top-coracao {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--gold);
+            margin: 10px auto 16px 20px;
+        }
+
+        .fita-coracao {
+            width: 9.5rem;
+            height: auto;
+            margin-top: -0.5rem;
+        }
+
+        .text-top-coracao {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--gold);
+            margin: 10px auto 16px 11.8rem;
+        }
+
+        .fita-coracao-lisa {
+            width: 70%;
+            height: auto;
+            margin: -0.9rem auto 8px;
+        }
+
+        .fita-reta-coracao {
+            width: 60%;
+            height: auto;
+        }
+
+        .localizacao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--gold);
+            margin: -11px auto 11px;
+        }
+
+        .flor-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .flor-footer div {
+            width: 130px;
+            /* max-width: 25%; */
+            height: auto;
+        }
+
+        .img-footer-esq {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            /* width: clamp(100px, 18vw, 250px); */
+            height: auto;
+        }
+
+        .img-footer-dir {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            /* width: clamp(100px, 18vw, 250px); */
+            height: auto;
+        }
+
+        .img-footer-fita {
+            right: 0;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .confirmacao-presenca {
+            margin-top: 11px;
+            padding-bottom: 4.5rem;
+            text-align: center;
+        }
+
+        .confirmacao-presenca p {
+            margin-bottom: 18px;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .botao-confirmar {
+            display: inline-block;
+            padding: 13px 28px;
+            border: 1px solid transparent;
+            border-radius: 30px;
+            background:
+                linear-gradient(rgb(176, 212, 250), rgb(176, 212, 250)) padding-box,
+                linear-gradient(90deg, #d9ecff, #477bb5) border-box;
+            color: #ffffff;
+            font-family: "Cinzel", serif;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .botao-confirmar:hover {
+            background: #ffffff;
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .copiar-qr {
+            font-size: 0.7rem;
+            margin: 0;
+        }
+
+        .presente-text {
+            margin: 5px 0 0;
+            font-size: clamp(1.5rem, 1.35vw, 14px);
+            text-align: center;
+            line-height: 1.5;
+            letter-spacing: 0.055em;
+        }
+
+        .titulo-presente {
+            font-family: "Alex Brush", cursive;
+            /* font-size: clamp(36px, 6vw, 52px); */
+            font-weight: 400;
+            margin: 0 0 8px;
+            line-height: 1;
+            color: var(--navy);
+        }
+
+        .presente-text-link {
+            margin: 0.7rem 0 3.5rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            letter-spacing: 0.055em;
+            line-height: 1;
+
+        }
+    </style>
 </head>
 
 <body>
