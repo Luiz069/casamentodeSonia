@@ -4,53 +4,54 @@
             font-style: normal;
         } */
 
-
 :root {
     --navy: #10264b;
     --blue: #477bb5;
     --sky: #dcecff;
     --gold: #bd8b2e;
     --gold2: #e7c978;
-    --paper: #fafdff
+    --paper: #fafdff;
 }
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
+    min-height: 100vh;
     color: var(--navy);
     font-family: "Cormorant Garamond", Georgia, serif;
-    /* background: linear-gradient(135deg, #d9eaff, #f8fbff 48%, #d7e8ff); */
-    background-image: url(./fundo.png);
+
+    background-image: url("./fundo.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /* background-attachment: fixed; */
 
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 
 button {
-    font: inherit
+    font: inherit;
 }
 
 #sparkles {
     position: fixed;
     inset: 0;
     z-index: 15;
-    pointer-events: none
+    pointer-events: none;
 }
 
 .page {
     min-height: 100vh;
     /* padding: 28px 12px 34px; */
     position: relative;
-    isolation: isolate
+    isolation: isolate;
 }
 
 /* .page:before {
@@ -69,7 +70,10 @@ button {
     overflow: hidden;
     text-align: center;
     padding: clamp(24px, 4vw, 42px) clamp(18px, 5vw, 54px) 34px;
-    background: linear-gradient(150deg, rgba(255, 255, 255, .1), rgba(239, 247, 255, .78) 58%, rgb(176, 212, 250));
+    background: linear-gradient(150deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(239, 247, 255, 0.78) 58%,
+            rgb(176, 212, 250));
     /* border: 1px solid #c99d4e; */
     border-radius: 5px;
     /* box-shadow: 0 20px 70px #254b7728, inset 0 0 0 5px #fff9 */
@@ -99,23 +103,23 @@ button {
     height: auto;
     z-index: 0;
     pointer-events: none;
-    opacity: .98
+    opacity: 0.98;
 }
 
 .corner.tl {
     left: -5px;
-    top: -3px
+    top: -3px;
 }
 
 .corner.br {
     right: -5px;
     bottom: -3px;
-    transform: rotate(180deg)
+    transform: rotate(180deg);
 }
 
 .content {
     position: relative;
-    z-index: 2
+    z-index: 2;
 }
 
 .quote {
@@ -126,7 +130,7 @@ button {
     max-width: 510px;
     margin: 5px 0 18px auto;
     text-align: center;
-    color: #10264b
+    color: #10264b;
 }
 
 .ornament {
@@ -135,7 +139,7 @@ button {
     justify-content: center;
     gap: 12px;
     color: var(--gold);
-    margin: 10px auto 16px
+    margin: 10px auto 16px;
 }
 
 .ornament:before,
@@ -147,12 +151,12 @@ button {
 }
 
 .ornament:after {
-    transform: scaleX(-1)
+    transform: scaleX(-1);
 }
 
 .ornament span {
     font-size: 28px;
-    line-height: 1
+    line-height: 1;
 }
 
 .invite-line {
@@ -161,26 +165,26 @@ button {
     font-style: italic;
     font-weight: 600;
     margin: -3px auto 22px;
-    max-width: 620px
+    max-width: 620px;
 }
 
 .names {
     font-family: "Great Vibes", cursive;
     font-size: clamp(42px, 8.3vw, 76px);
-    line-height: .95;
+    line-height: 0.95;
     font-weight: 400;
     margin: 3px 0 6px;
     color: #0d2047;
-    text-shadow: 0 1px #fff
+    text-shadow: 0 1px #fff;
 }
 
 .names .and {
     display: block;
     font-family: "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: .56em;
+    font-size: 0.56em;
     line-height: 1.1;
-    margin: 2px
+    margin: 2px;
 }
 
 .message {
@@ -189,7 +193,7 @@ button {
     font-style: italic;
     font-weight: 600;
     max-width: 600px;
-    margin: 3px auto 26px
+    margin: 3px auto 26px;
 }
 
 .details {
@@ -198,7 +202,7 @@ button {
     gap: 20px;
     align-items: stretch;
     margin: 8px auto 14px;
-    max-width: 650px
+    max-width: 650px;
 }
 
 .detail {
@@ -217,7 +221,7 @@ button {
     font-weight: 400;
     margin: 0 0 8px;
     line-height: 1;
-    color: #10264b
+    color: #10264b;
 }
 
 .detail p {
@@ -225,7 +229,7 @@ button {
     font-size: clamp(17px, 2.8vw, 23px);
     font-weight: 600;
     line-height: 1.03;
-    margin: 7px 0
+    margin: 7px 0;
 }
 
 .detail .row {
@@ -233,22 +237,21 @@ button {
     align-items: center;
     justify-content: center;
     gap: 9px;
-
 }
 
 .detail .ico {
     width: 27px;
     height: 27px;
     flex: 0 0 27px;
-    color: var(--gold)
+    color: var(--gold);
 }
 
 .detail .place {
-    margin-top: 10px
+    margin-top: 10px;
 }
 
 .footerline {
-    margin: 16px auto 5px
+    margin: 16px auto 5px;
 }
 
 .closing {
@@ -256,7 +259,7 @@ button {
     font-size: clamp(39px, 7vw, 62px);
     line-height: 1;
     color: #10264b;
-    margin: 10px 0 0
+    margin: 10px 0 0;
 }
 
 .flowers {
@@ -265,38 +268,43 @@ button {
     width: 190px;
     max-width: 28%;
     height: auto;
-    pointer-events: none
+    pointer-events: none;
 }
 
 .flowers.topright {
     right: -6px;
     top: 0;
-    transform: scaleX(-1)
+    transform: scaleX(-1);
 }
 
 .flowers.bottomleft {
     left: -5px;
     bottom: 0;
-    transform: rotate(180deg)
+    transform: rotate(180deg);
 }
 
-/* Envelope gatefold, following the original repository's two-door opening */
+/* Envelope gatefold - Azul clássico */
 .gatefold {
     position: fixed;
     inset: 0;
     z-index: 50;
     display: flex;
     perspective: 1300px;
-    background: linear-gradient(145deg, #dcecff, #fff 48%, #dcecff);
-    overflow: hidden
+
+    background: linear-gradient(145deg,
+            rgb(176, 212, 250),
+            #eaf4ff 48%,
+            rgb(176, 212, 250));
+
+    overflow: hidden;
 }
 
 .gatefold:after {
     content: "";
     position: absolute;
     inset: 0;
-    background: #172b4933;
-    pointer-events: none
+    background: rgba(52, 91, 133, 0.12);
+    pointer-events: none;
 }
 
 .door {
@@ -305,10 +313,19 @@ button {
     height: 100%;
     width: 50%;
     z-index: 2;
-    background: linear-gradient(135deg, #fff 0%, #faf8f5 52%, #e9f1fb 100%);
-    box-shadow: 0 0 30px #263c5b22;
-    transition: transform 1.25s cubic-bezier(.77, 0, .175, 1), opacity .75s ease .48s;
-    transform-style: preserve-3d
+
+    background: linear-gradient(135deg,
+            #ffffff 0%,
+            #eaf4ff 52%,
+            rgb(176, 212, 250) 100%);
+
+    box-shadow: 0 0 30px rgba(52, 91, 133, 0.13);
+
+    transition:
+        transform 1.25s cubic-bezier(0.77, 0, 0.175, 1),
+        opacity 0.75s ease 0.48s;
+
+    transform-style: preserve-3d;
 }
 
 .door:before {
@@ -316,20 +333,20 @@ button {
     position: absolute;
     inset: 15px;
     border: 1px solid #c69a48;
-    outline: 1px solid #c69a4833;
-    outline-offset: 5px
+    outline: 1px solid rgba(198, 154, 72, 0.2);
+    outline-offset: 5px;
 }
 
 .door.left {
     left: 0;
     transform-origin: left center;
-    border-right: 1px solid #c69a48
+    border-right: 1px solid #c69a48;
 }
 
 .door.right {
     right: 0;
     transform-origin: right center;
-    border-left: 1px solid #c69a48
+    border-left: 1px solid #c69a48;
 }
 
 .door.left:after,
@@ -338,37 +355,40 @@ button {
     position: absolute;
     width: 150px;
     height: 150px;
-    border: 1px solid #c69a4866;
+    border: 1px solid rgba(198, 154, 72, 0.4);
     border-radius: 50%;
-    box-shadow: 0 0 0 12px #c69a4810, 0 0 0 24px #c69a4809
+
+    box-shadow:
+        0 0 0 12px rgba(198, 154, 72, 0.06),
+        0 0 0 24px rgba(198, 154, 72, 0.04);
 }
 
 .door.left:after {
     left: -45px;
-    top: 8%
+    top: 8%;
 }
 
 .door.right:after {
     right: -45px;
-    bottom: 8%
+    bottom: 8%;
 }
 
 .door-flower {
     position: absolute;
     width: min(40vw, 330px);
     height: auto;
-    opacity: .9
+    opacity: 0.9;
 }
 
 .door.left .door-flower {
     left: -8px;
-    top: 0
+    top: 0;
 }
 
 .door.right .door-flower {
     right: -8px;
     bottom: 0;
-    transform: rotate(180deg)
+    transform: rotate(180deg);
 }
 
 .sealbox {
@@ -377,11 +397,15 @@ button {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    transition: opacity .35s, transform .35s
+
+    transition:
+        opacity 0.35s,
+        transform 0.35s;
 }
 
 .seal {
@@ -389,142 +413,160 @@ button {
     aspect-ratio: 1;
     border-radius: 50%;
     border: 2px solid #a77a2b;
-    background: radial-gradient(circle at 30% 25%, #fff4ce, #d7ae59 45%, #93631c 100%);
-    box-shadow: 0 12px 34px #49340b55, inset 0 0 0 5px #fff6, inset 0 0 0 8px #79511633;
+
+    background: radial-gradient(circle at 30% 25%,
+            #fff4ce,
+            #d7ae59 45%,
+            #93631c 100%);
+
+    box-shadow:
+        0 12px 34px rgba(73, 52, 11, 0.33),
+        inset 0 0 0 5px rgba(255, 255, 255, 0.4),
+        inset 0 0 0 8px rgba(121, 81, 22, 0.2);
+
     color: white;
-    text-shadow: 0 2px 5px #65451488;
+    text-shadow: 0 2px 5px rgba(101, 69, 20, 0.5);
+
     font: 400 clamp(42px, 7vw, 60px) "Alex Brush", cursive;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .seal:hover {
-    transform: scale(1.05)
+    transform: scale(1.05);
 }
 
 .seal:focus-visible {
-    outline: 3px solid var(--blue);
-    outline-offset: 5px
+    outline: 3px solid rgb(176, 212, 250);
+    outline-offset: 5px;
 }
 
 .sealhint {
     margin: 0;
-    color: #6d5836;
+    color: #345b85;
+
     font: 600 10px Montserrat, sans-serif;
-    letter-spacing: .2em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    text-align: center
+    text-align: center;
 }
 
 .gatefold.open .door.left {
     transform: rotateY(-110deg);
     opacity: 0;
-    pointer-events: none
+    pointer-events: none;
 }
 
 .gatefold.open .door.right {
     transform: rotateY(110deg);
     opacity: 0;
-    pointer-events: none
+    pointer-events: none;
 }
 
 .gatefold.open .sealbox {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(.7);
-    pointer-events: none
+    transform: translate(-50%, -50%) scale(0.7);
+    pointer-events: none;
 }
 
 .gatefold.hide {
-    display: none
+    display: none;
 }
 
 .reveal {
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity .8s ease, transform .8s ease
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 
 .reveal.show {
     opacity: 1;
-    transform: none
+    transform: none;
 }
 
-@media(max-width:620px) {
+@media (max-width: 620px) {
     .page {
         /* padding: 8px 6px 18px */
     }
 
     .invitation {
         padding: 22px 12px 25px;
-        border-radius: 3px
+        border-radius: 3px;
     }
 
     .invitation:before {
-        inset: 5px
+        inset: 5px;
     }
 
     .invitation:after {
-        inset: 10px
+        inset: 10px;
     }
 
     .corner {
-        width: 42%
+        width: 42%;
     }
 
     .quote {
         margin: 5px 0 12px auto;
         font-size: clamp(19px, 5vw, 28px);
-        max-width: 68%
+        max-width: 68%;
     }
 
     .invite-line {
-        font-size: clamp(17px, 4.5vw, 23px)
+        font-size: clamp(17px, 4.5vw, 23px);
     }
 
     .names {
-        font-size: clamp(42px, 9.5vw, 58px)
+        font-size: clamp(42px, 9.5vw, 58px);
     }
 
     .message {
-        font-size: clamp(17px, 4.3vw, 23px)
+        font-size: clamp(17px, 4.3vw, 23px);
     }
 
     .details {
-        gap: 8px
+        gap: 8px;
     }
 
     .detail {
         padding: 14px 7px 12px;
-        border-radius: 32px 32px 24px 24px
+        border-radius: 32px 32px 24px 24px;
     }
 
     .detail h2 {
-        font-size: clamp(45px, 7vw, 42px)
+        font-size: clamp(45px, 7vw, 42px);
+    }
+
+    .titulo-presente {
+        font-size: clamp(45px, 7vw, 42px);
     }
 
     .detail p {
-        font-size: clamp(14px, 3.7vw, 19px)
+        font-size: clamp(14px, 3.7vw, 19px);
     }
 
     .detail .ico {
         width: 21px;
         height: 21px;
-        flex-basis: 21px
+        flex-basis: 21px;
     }
 
     .flowers {
         width: 130px;
-        max-width: 25%
+        max-width: 25%;
     }
 }
 
-@media(prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
 
     *,
     *:before,
     *:after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-        scroll-behavior: auto !important
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
@@ -539,7 +581,7 @@ button {
     font-style: italic;
     font-weight: 600;
     margin: 18px auto 16px 11.8rem;
-    max-width: 620px
+    max-width: 620px;
 }
 
 .text-top-coracao {
@@ -598,23 +640,91 @@ button {
     width: 130px;
     /* max-width: 25%; */
     height: auto;
-
 }
 
 .img-footer-esq {
-    top: 725px;
+    position: absolute;
+    bottom: 0;
     left: 0;
-
-
+    /* width: clamp(100px, 18vw, 250px); */
+    height: auto;
 }
 
 .img-footer-dir {
-    top: 725px;
+    position: absolute;
+    bottom: 0;
     right: 0;
+    /* width: clamp(100px, 18vw, 250px); */
+    height: auto;
 }
 
 .img-footer-fita {
     right: 0;
     width: 100%;
     bottom: 0;
+}
+
+.confirmacao-presenca {
+    margin-top: 11px;
+    padding-bottom: 4.5rem;
+    text-align: center;
+}
+
+.confirmacao-presenca p {
+    margin-bottom: 18px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+}
+
+.botao-confirmar {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    background:
+        linear-gradient(rgb(176, 212, 250), rgb(176, 212, 250)) padding-box,
+        linear-gradient(90deg, #f9eba1, #9d6e26) border-box;
+    color: #ffffff;
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.botao-confirmar:hover {
+    background: #ffffff;
+    color: #ab3d57;
+    transform: translateY(-2px);
+}
+
+.copiar-qr {
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+.presente-text {
+    margin: 5px 0 0;
+    font-size: clamp(1.5rem, 1.35vw, 14px);
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0.055em;
+}
+
+.titulo-presente {
+    font-family: "Alex Brush", cursive;
+    /* font-size: clamp(36px, 6vw, 52px); */
+    font-weight: 400;
+    margin: 0 0 8px;
+    line-height: 1;
+    color: #10264b;
+}
+
+.presente-text-link {
+    margin: 0.7rem 0 3.5rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    letter-spacing: 0.055em;
+    line-height: 1;
+
 }
