@@ -25,7 +25,7 @@
     <canvas id="sparkles" aria-hidden="true"></canvas>
 
     <!-- SVG vetorial: flores, folhas e rosas desenhadas no próprio HTML -->
-    <svg aria-hidden="true" width="0" height="0" style="position: absolute">
+    <!-- <svg aria-hidden="true" width="0" height="0" style="position: absolute">
         <defs>
             <linearGradient id="bluePetal" x1="0" y1="0" x2="1" y2="1">
                 <stop stop-color="#e5f5ff" />
@@ -99,7 +99,7 @@
                 </g>
             </g>
         </defs>
-    </svg>
+    </svg> -->
 
     <!-- Envelope de abertura no estilo gatefold do index.html do GitHub -->
     <section class="gatefold" id="gatefold" aria-label="Envelope do convite">
@@ -107,20 +107,28 @@
             <!-- <svg class="door-flower" viewBox="0 0 220 220">
                 <use href="#flowerCluster" />
             </svg> -->
-            <img class="door-flower" src="../assets/borda-esq-superior.svg" alt="Rosas e flores decorativas" />
+            <img class="door-flower" src="/enve-esq-superior.svg" alt="Rosas e flores decorativas"
+                style="width: 15rem;" />
         </div>
         <div class="door right">
             <!-- <svg class="door-flower" viewBox="0 0 220 220">
                 <use href="#flowerCluster" />
             </svg> -->
-            <img class="door-flower" src="../assets/borda-dir-inferior.svg" alt="Rosas e flores decorativas"
-                style="rotate: 180deg" />
+            <img class="door-flower" src="/enve-dir-inferior.svg" alt="Rosas e flores decorativas"
+                style="rotate: 180deg; width: 15rem;" />
         </div>
-        <div class="sealbox">
+        <!-- <div class="sealbox">
             <button class="seal" id="openBtn" type="button" aria-label="Abrir convite">
                 J <span style="font-size: 0.5em">&amp;</span> S
             </button>
             <p class="sealhint">Toque para deslacrar</p>
+        </div> -->
+
+        <div class="sealbox">
+            <button class="seal" id="openBtn" type="button" aria-label="Abrir convite">
+                <img src="./monograma.svg" alt="Monograma J e S" class="seal-img">
+            </button>
+            <p class="sealhint">Clique para abrir</p>
         </div>
     </section>
 
@@ -158,23 +166,7 @@
                 </section>
 
                 <section class="reveal">
-                    <!-- Alianças vetoriais desenhadas no HTML -->
-                    <!-- <svg width="150" height="76" viewBox="0 0 150 76" role="img" aria-label="Duas alianças douradas">
-                        <defs>
-                            <linearGradient id="ringGold" x1="0" y1="0" x2="1" y2="1">
-                                <stop stop-color="#fff0b5" />
-                                <stop offset=".35" stop-color="#c28d28" />
-                                <stop offset=".62" stop-color="#ffe6a0" />
-                                <stop offset="1" stop-color="#9a6817" />
-                            </linearGradient>
-                        </defs>
-                        <ellipse cx="57" cy="43" rx="37" ry="18" transform="rotate(-25 57 43)" fill="none"
-                            stroke="url(#ringGold)" stroke-width="9" />
-                        <ellipse cx="92" cy="36" rx="37" ry="18" transform="rotate(24 92 36)" fill="none"
-                            stroke="url(#ringGold)" stroke-width="9" />
-                        <path d="M30 25 Q54 5 77 24 M70 17 Q98 0 119 24" fill="none" stroke="#fff1c4" stroke-width="2"
-                            opacity=".8" />
-                    </svg> -->
+
                     <h1 class="names">
                         José Aderaldo Pereira Diniz
                         <div class="ornament" style="margin: -12px auto -1px">
@@ -182,7 +174,6 @@
                         </div>
                         Sônia Maria Amaral Menezes
                     </h1>
-                    <!-- <div class="ornament"><span>♡</span></div> -->
                     <p class="message">
                         Que este seja o início de uma nova jornada,<br />repleta de amor,
                         respeito e bênçãos de Deus.

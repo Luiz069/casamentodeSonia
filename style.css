@@ -5,11 +5,14 @@
         } */
 
 :root {
-    --navy: #10264b;
+    --blue-main: rgb(176, 212, 250);
+    --blue-light: #eaf4ff;
+    --blue-soft: #d5e9ff;
+    --blue-medium: #7eaddd;
     --blue: #477bb5;
-    --sky: #dcecff;
-    --gold: #bd8b2e;
-    --gold2: #e7c978;
+    --navy: #24466b;
+    --gold: var(--blue);
+    --gold2: #b0d4fa;
     --paper: #fafdff;
 }
 
@@ -74,7 +77,7 @@ button {
             rgba(255, 255, 255, 0.1),
             rgba(239, 247, 255, 0.78) 58%,
             rgb(176, 212, 250));
-    /* border: 1px solid #c99d4e; */
+    /* border: 1px solid var(--blue-medium); */
     border-radius: 5px;
     /* box-shadow: 0 20px 70px #254b7728, inset 0 0 0 5px #fff9 */
 }
@@ -83,7 +86,7 @@ button {
             content: "";
             position: absolute;
             inset: 8px;
-            border: 1px solid #d9b66e;
+            border: 1px solid var(--blue-medium);
             pointer-events: none;
             z-index: 1
         }
@@ -92,7 +95,7 @@ button {
             content: "";
             position: absolute;
             inset: 14px;
-            border: 1px solid #e8d6ad;
+            border: 1px solid var(--blue-soft);
             pointer-events: none;
             z-index: 1
         } */
@@ -130,7 +133,7 @@ button {
     max-width: 510px;
     margin: 5px 0 18px auto;
     text-align: center;
-    color: #10264b;
+    color: var(--navy);
 }
 
 .ornament {
@@ -147,7 +150,7 @@ button {
     content: "";
     height: 2px;
     width: clamp(115px, 15vw, 145px);
-    background: linear-gradient(90deg, transparent, var(--gold), #e8cb80);
+    background: linear-gradient(90deg, transparent, #bd8b2e, #e8cb80);
 }
 
 .ornament:after {
@@ -174,7 +177,7 @@ button {
     line-height: 0.95;
     font-weight: 400;
     margin: 3px 0 6px;
-    color: #0d2047;
+    color: var(--navy);
     text-shadow: 0 1px #fff;
 }
 
@@ -207,7 +210,7 @@ button {
 
 .detail {
     position: relative;
-    /* border: 2px solid #c69a48; */
+    /* border: 2px solid var(--blue-medium); */
     border-radius: 48px 48px 35px 35px;
     padding: 18px 14px 17px;
     /* background: #ffffff9c; */
@@ -221,7 +224,7 @@ button {
     font-weight: 400;
     margin: 0 0 8px;
     line-height: 1;
-    color: #10264b;
+    color: var(--navy);
 }
 
 .detail p {
@@ -258,7 +261,7 @@ button {
     font-family: "Alex Brush", cursive;
     font-size: clamp(39px, 7vw, 62px);
     line-height: 1;
-    color: #10264b;
+    color: var(--navy);
     margin: 10px 0 0;
 }
 
@@ -332,21 +335,21 @@ button {
     content: "";
     position: absolute;
     inset: 15px;
-    border: 1px solid #c69a48;
-    outline: 1px solid rgba(198, 154, 72, 0.2);
+    border: 1px solid var(--blue-medium);
+    outline: 1px solid rgba(71, 123, 181, 0.20);
     outline-offset: 5px;
 }
 
 .door.left {
     left: 0;
     transform-origin: left center;
-    border-right: 1px solid #c69a48;
+    border-right: 1px solid var(--blue-medium);
 }
 
 .door.right {
     right: 0;
     transform-origin: right center;
-    border-left: 1px solid #c69a48;
+    border-left: 1px solid var(--blue-medium);
 }
 
 .door.left:after,
@@ -355,12 +358,12 @@ button {
     position: absolute;
     width: 150px;
     height: 150px;
-    border: 1px solid rgba(198, 154, 72, 0.4);
+    border: 1px solid rgba(71, 123, 181, 0.40);
     border-radius: 50%;
 
     box-shadow:
-        0 0 0 12px rgba(198, 154, 72, 0.06),
-        0 0 0 24px rgba(198, 154, 72, 0.04);
+        0 0 0 12px rgba(71, 123, 181, 0.08),
+        0 0 0 24px rgba(71, 123, 181, 0.05);
 }
 
 .door.left:after {
@@ -409,27 +412,26 @@ button {
 }
 
 .seal {
-    width: clamp(108px, 19vw, 150px);
-    aspect-ratio: 1;
+    width: clamp(130px, 22vw, 180px);
+    aspect-ratio: 0;
+    padding: 0;
+    border: none;
     border-radius: 50%;
-    border: 2px solid #a77a2b;
-
-    background: radial-gradient(circle at 30% 25%,
-            #fff4ce,
-            #d7ae59 45%,
-            #93631c 100%);
-
-    box-shadow:
-        0 12px 34px rgba(73, 52, 11, 0.33),
-        inset 0 0 0 5px rgba(255, 255, 255, 0.4),
-        inset 0 0 0 8px rgba(121, 81, 22, 0.2);
-
-    color: white;
-    text-shadow: 0 2px 5px rgba(101, 69, 20, 0.5);
-
-    font: 400 clamp(42px, 7vw, 60px) "Alex Brush", cursive;
+    background: transparent;
+    box-shadow: none;
     cursor: pointer;
+    transition: transform 0.3s ease;
+    overflow: visible;
 }
+
+.seal-img {
+    display: block;
+    width: 8.45em;
+    height: 100%;
+    object-fit: contain;
+    margin-left: 7px;
+}
+
 
 .seal:hover {
     transform: scale(1.05);
@@ -442,7 +444,7 @@ button {
 
 .sealhint {
     margin: 0;
-    color: #345b85;
+    color: var(--navy);
 
     font: 600 10px Montserrat, sans-serif;
     letter-spacing: 0.2em;
@@ -683,7 +685,7 @@ button {
     border-radius: 30px;
     background:
         linear-gradient(rgb(176, 212, 250), rgb(176, 212, 250)) padding-box,
-        linear-gradient(90deg, #f9eba1, #9d6e26) border-box;
+        linear-gradient(90deg, #d9ecff, #477bb5) border-box;
     color: #ffffff;
     font-family: "Cinzel", serif;
     font-size: 12px;
@@ -694,7 +696,7 @@ button {
 
 .botao-confirmar:hover {
     background: #ffffff;
-    color: #ab3d57;
+    color: var(--navy);
     transform: translateY(-2px);
 }
 
@@ -717,7 +719,7 @@ button {
     font-weight: 400;
     margin: 0 0 8px;
     line-height: 1;
-    color: #10264b;
+    color: var(--navy);
 }
 
 .presente-text-link {
